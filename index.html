@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paulo Cuellar Bascope - Portfólio</title>
+    <meta name="description" content="Portfólio profissional de Paulo Cuellar Bascope - Técnico em Informática">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter antialiased bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- Loading Animation -->
+    <div id="loading" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-40 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-bold text-xl text-gray-900 dark:text-white">Paulo Bascope</div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Início</a>
+                    <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Sobre</a>
+                    <a href="#skills" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Habilidades</a>
+                    <a href="#experience" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Experiência</a>
+                    <a href="#education" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Formação</a>
+                    <a href="#contact" class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400">Contato</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i data-lucide="sun" class="w-5 h-5 text-gray-700 dark:text-gray-300 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 text-gray-700 dark:text-gray-300 hidden dark:block"></i>
+                    </button>
+                    
+                    <button id="mobileMenuToggle" class="md:hidden p-2">
+                        <i data-lucide="menu" class="w-6 h-6 text-gray-700 dark:text-gray-300"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600">Início</a>
+                <a href="#about" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600">Sobre</a>
+                <a href="#skills" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600">Habilidades</a>
+                <a href="#experience" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600">Experiência</a>
+                <a href="#education" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600">Formação</a>
+                <a href="#contact" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-16 min-h-screen flex items-center bg-gradient-to-br from-primary-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 hero-bg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                        Olá, eu sou
+                        <span class="text-gradient block">Paulo Bascope</span>
+                    </h1>
+                    <div class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed min-h-[3.5rem]">
+                        <span id="typed-text" class="font-semibold text-primary-600 dark:text-primary-400"></span>
+                        <span id="typing-cursor" class="animate-pulse">|</span>
+                    </div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        com experiência sólida em atendimento ao cliente, vendas, gestão de equipes e 
+                        suporte técnico. Sempre em busca de novos desafios na área de tecnologia.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+                            <i data-lucide="computer" class="w-4 h-4 inline mr-1"></i>
+                            Suporte Técnico
+                        </span>
+                        <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
+                            <i data-lucide="zap" class="w-4 h-4 inline mr-1"></i>
+                            Vendas & Atendimento
+                        </span>
+                        <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
+                            <i data-lucide="code" class="w-4 h-4 inline mr-1"></i>
+                            Tecnologia
+                        </span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="btn-primary inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all duration-300 hover:scale-105">
+                            <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                            Entre em Contato
+                        </a>
+                        <a href="curriculo-paulo-bascope.pdf" download class="btn-secondary inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-105">
+    <i data-lucide="download" class="w-5 h-5 mr-2"></i>
+    Download CV
+</a>
+
+                    </div>
+                </div>
+                
+                <div class="animate-fade-in-delay">
+                    <div class="relative group">
+                        <!-- Foto do usuário -->
+                        <div class="w-80 h-80 mx-auto relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105">
+                            <img src="eu.jpeg" 
+                                 alt="Paulo Cuellar Bascope" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-primary-600/20 to-transparent"></div>
+                        </div>
+                        <!-- Elementos decorativos -->
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                            <span class="text-2xl">💻</span>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                            <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-900 section-transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Sobre Mim</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Profissional dedicado com 20 anos, sempre em busca de novos desafios na área de tecnologia
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 scroll-animate">
+                    <div class="prose prose-lg dark:prose-invert">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Sou Paulo Cuellar Bascope, brasileiro de 20 anos, técnico em informática formado pelo Instituto Federal de Guajará-Mirim. 
+                            Tenho experiência sólida em atendimento ao cliente, vendas, gestão de equipes e operações.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Meu objetivo é atuar na área de informática, suporte técnico ou vendas, contribuindo com minhas 
+                            experiências em atendimento, organização, infraestrutura e tecnologia para agregar valor à equipe e crescer profissionalmente.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg card-hover">
+                            <div class="text-2xl font-bold text-primary-600 dark:text-primary-400 counter" data-target="5">0</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Anos de Experiência</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg card-hover">
+                            <div class="text-2xl font-bold text-primary-600 dark:text-primary-400 counter" data-target="4">0</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Cursos Complementares</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6 scroll-animate">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg card-hover">
+                        <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Informações Pessoais</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-primary-600 mr-3"></i>
+                                <span class="text-gray-600 dark:text-gray-300">Rua Jasmin - Setor 04, Ariquemes - RO</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="mail" class="w-4 h-4 text-primary-600 mr-3"></i>
+                                <span class="text-gray-600 dark:text-gray-300">paulobascope69@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="phone" class="w-4 h-4 text-primary-600 mr-3"></i>
+                                <span class="text-gray-600 dark:text-gray-300">(69) 99907-7267</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="calendar" class="w-4 h-4 text-primary-600 mr-3"></i>
+                                <span class="text-gray-600 dark:text-gray-300">20 anos (02/02/2005)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="heart" class="w-4 h-4 text-primary-600 mr-3"></i>
+                                <span class="text-gray-600 dark:text-gray-300">União Estável</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="flag" class="w-4 h-4 text-primary-600 mr-3"></i>
+                                <span class="text-gray-600 dark:text-gray-300">Brasileiro</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg card-hover">
+                        <h3 class="font-semibold text-gray-900 dark:text-white mb-4">Idiomas</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300">Português</span>
+                                <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="w-full bg-green-500 h-2 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300">Espanhol</span>
+                                <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="w-5/6 bg-blue-500 h-2 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-300">Inglês</span>
+                                <div class="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                    <div class="w-1/3 bg-yellow-500 h-2 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-800 section-transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Habilidades & Tecnologias</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300">Tecnologias e ferramentas que domino</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tecnologia -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md card-hover scroll-animate">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="computer" class="w-8 h-8 text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Tecnologia</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Suporte Técnico</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Facilidade com Ferramentas Digitais</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Digitação Avançada</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Excel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vendas -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md card-hover scroll-animate">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="shopping-cart" class="w-8 h-8 text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Vendas & Atendimento</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Atendimento ao Cliente</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Vendas no Varejo</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Organização de Estoque</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Emissão de Notas Fiscais</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gestão -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md card-hover scroll-animate">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="users" class="w-8 h-8 text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Gestão & Liderança</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Trabalho em Equipe</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Liderança de Treinamentos</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Organização</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                            <span class="text-gray-600 dark:text-gray-300">Supervisão</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white dark:bg-gray-900 section-transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Experiência Profissional</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300">Minha trajetória profissional</p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="experience-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Encarregado de Operações</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Açaí na Estrada LTDA - Ariquemes/RO</p>
+                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">Mar/2025 - Jun/2025</span>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-300 space-y-1">
+                        <li>• Organização da equipe de atendimento e cozinha</li>
+                        <li>• Supervisão de processos logísticos e controle de insumos</li>
+                        <li>• Apoio na gestão administrativa e abertura/fechamento da loja</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Vendedor</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Confecções Gomez - Nova Mamoré/RO</p>
+                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">Ago/2024 - Set/2024</span>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-300 space-y-1">
+                        <li>• Atendimento ao cliente e vendas de roupas</li>
+                        <li>• Organização e controle de estoque</li>
+                        <li>• Apoio na limpeza e organização da loja</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Vendedor</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Casa das Bombas - Nova Mamoré/RO</p>
+                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">Jun/2024 - Ago/2024</span>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-300 space-y-1">
+                        <li>• Atendimento e vendas de produtos de linha branca</li>
+                        <li>• Organização de estoque e emissão de notas fiscais de entrada e saída</li>
+                        <li>• Responsável pelo terminal de vendas</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Vendedor de Comércio Varejista</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Irmãos Gonçalves Indústria LTDA - Porto Velho/RO</p>
+                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">Jun/2023 - Mai/2024</span>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-300 space-y-1">
+                        <li>• Início como repositor, promovido para auxiliar de organização e conferente</li>
+                        <li>• Treinador de novos colaboradores</li>
+                        <li>• Auxílio na montagem de novas lojas da empresa na região</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Auxiliar em Serviços Gerais</h3>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium">Fazenda Bom Futuro - Guajará-Mirim/RO</p>
+                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 mt-2 md:mt-0">Abr/2020 - Dez/2022</span>
+                    </div>
+                    <ul class="text-gray-600 dark:text-gray-300 space-y-1">
+                        <li>• Conservação de ambientes e cuidados com animais</li>
+                        <li>• Apoio em atividades agrícolas diversas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white dark:bg-gray-900 section-transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Formação e Cursos</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300">Educação e desenvolvimento profissional</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Formação Acadêmica</h3>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Técnico em Informática</h4>
+                        <p class="text-primary-600 dark:text-primary-400 font-medium">Instituto Federal, Campus Guajará-Mirim</p>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Presencial | Concluído em 12/2022</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Cursos Complementares</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">Técnicas Bancárias</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Via Online Treinamentos - 04/2022</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">Digitação</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Curso EAD - 06/2022</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">Excel</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Cursos Online SP - 07/2022</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">Espanhol Turístico</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">Instituto Federal do Paraná - 04/2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Activities -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 text-center">Atividades Complementares</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div class="text-3xl mb-2">🍽️</div>
+                        <h4 class="font-medium text-gray-900 dark:text-white">Garçom</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Atendimento ao cliente, organização de mesas e apoio em eventos</p>
+                    </div>
+                    
+                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div class="text-3xl mb-2">🏊</div>
+                        <h4 class="font-medium text-gray-900 dark:text-white">Piscineiro</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Manutenção e limpeza de piscinas, controle de produtos químicos</p>
+                    </div>
+                    
+                    <div class="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div class="text-3xl mb-2">🔧</div>
+                        <h4 class="font-medium text-gray-900 dark:text-white">Ajudante em Serviços Gerais</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Apoio em limpeza, carga e descarga, pequenas manutenções</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6 text-center">Informações Adicionais</h3>
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                    <div class="grid md:grid-cols-3 gap-4 text-center">
+                        <div class="flex items-center justify-center space-x-2">
+                            <i data-lucide="clock" class="w-5 h-5 text-green-600"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Disponibilidade para início imediato</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-2">
+                            <i data-lucide="refresh-cw" class="w-5 h-5 text-blue-600"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Facilidade de adaptação</span>
+                        </div>
+                        <div class="flex items-center justify-center space-x-2">
+                            <i data-lucide="trending-up" class="w-5 h-5 text-purple-600"></i>
+                            <span class="text-gray-700 dark:text-gray-300">Interesse em desenvolvimento contínuo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primary-600 dark:bg-primary-700 section-transition">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Vamos Conversar</h2>
+                <p class="text-lg text-primary-100">Entre em contato comigo para oportunidades ou colaborações</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4 text-white">
+                        <div class="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Email</h3>
+                            <p class="text-primary-100">paulobascope69@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4 text-white">
+                        <div class="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i data-lucide="phone" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Telefone</h3>
+                            <p class="text-primary-100">(69) 99907-7267</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4 text-white">
+                        <div class="flex-shrink-0 w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                            <i data-lucide="map-pin" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Localização</h3>
+                            <p class="text-primary-100">Ariquemes, Rondônia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-white">Entre em Contato</h3>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="mailto:paulobascope69@gmail.com" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 rounded-lg hover:bg-gray-100 transition-colors font-medium">
+                            <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                            Enviar Email
+                        </a>
+                        <a href="https://wa.me/5569999077267" target="_blank" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors font-medium">
+                            <span class="mr-2">💬</span>
+                            WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 dark:bg-gray-950">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">&copy; 2024 Paulo Bascope. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full opacity-0 transition-all duration-300 z-50">
+        <div class="flex items-center">
+            <i data-lucide="check" class="w-5 h-5 mr-2"></i>
+            <span>Bem-vindo ao meu portfólio!</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
